@@ -1,0 +1,143 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e52d27), to(#b31217));
+  background: linear-gradient(#e52d27, #b31217);
+  color: #233741;
+}
+
+.todo-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 25% 75%;
+      grid-template-rows: 25% 75%;
+  width: 350px;
+  height: 550px;
+  background: #fff;
+}
+
+.todo-container header {
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  background-image: url(../sources/mountain_range_background_312045.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.todo-container header .clear-todos {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  cursor: pointer;
+  height: 30px;
+}
+
+.todo-container header .time {
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  font-size: 2em;
+}
+
+.todo-container section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 90% 10%;
+      grid-template-rows: 90% 10%;
+}
+
+.todo-container section .todo-list {
+  list-style: none;
+  overflow-y: auto;
+}
+
+.todo-container section .todo-list li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  position: relative;
+}
+
+.todo-container section .todo-list li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background: black;
+  -webkit-transition: width .2s ease-out;
+  transition: width .2s ease-out;
+  z-index: -1;
+}
+
+.todo-container section .todo-list li .todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-container section .todo-list li .todo-item i {
+  font-size: 1.8em;
+  padding: 0 5px 0 0;
+}
+
+.todo-container section .todo-list li .todo-item .todo-title {
+  margin-right: auto;
+}
+
+.todo-container section .todo-list li .todo-item i,
+.todo-container section .todo-list li .todo-item .remove-todo {
+  cursor: pointer;
+}
+
+.todo-container section .search-container {
+  width: 100%;
+}
+
+.todo-container section .search-container input[type="text"] {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+  .todo-container {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.list-item.todo-is-done {
+  opacity: .5;
+}
+
+.list-item.todo-is-done.list-item::after {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

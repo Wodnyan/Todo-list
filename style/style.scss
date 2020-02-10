@@ -1,0 +1,121 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(#e52d27, #b31217);
+    color: #233741;
+}
+
+.todo-container {
+    display: grid;
+    grid-template-rows: 25% 75%;
+    width: 350px;
+    height: 550px;
+    background: #fff;
+
+    header {
+        padding: 10px;
+        display: grid;
+        background-image: url(../sources/mountain_range_background_312045.jpg);
+        background-position: center;
+        background-size: cover;
+
+        .clear-todos {
+            justify-self: end;
+            cursor: pointer;
+            height: 30px;
+        }
+
+        .time {
+            align-self: end;
+            font-size: 2em;
+        }
+    }
+
+    section {
+        display: grid;
+        grid-template-rows: 90% 10%;
+
+        .todo-list {
+            list-style: none;
+            overflow-y: auto;
+
+            li {
+                border-bottom: 1px solid rgba($color: #000000, $alpha: .5);
+                padding: 10px 20px;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    width: 0%;
+                    height: 2px;
+                    background: black;
+                    transition: width .2s ease-out;
+                    z-index: -1;
+                }
+
+                .todo-item {
+                    display: flex;
+                    align-items: center;
+
+                    i {
+                        font-size: 1.8em;
+                        padding: 0 5px 0 0;
+                    }
+
+                    .todo-title {
+                        margin-right: auto;
+                    }
+
+                    i,
+                    .remove-todo {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .search-container {
+            width: 100%;
+
+            input[type="text"] {
+                height: 100%;
+                width: 100%;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .todo-container {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.list-item.todo-is-done {
+    opacity: .5;
+}
+
+.list-item.todo-is-done.list-item::after {
+    width: 100%;
+}
